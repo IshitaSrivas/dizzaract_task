@@ -21,3 +21,17 @@ export type AuthContextValue = {
   signOut: () => Promise<void>
 }
 
+export type ApiKey = {
+  id: string
+  name: string
+  key: string
+  status: 'Active' | 'Expired'
+  expires?: string
+  createdAt: string
+  lastUsed?: string
+}
+
+export type ApiKeysTableProps = {
+  keys: ApiKey[]
+}
+

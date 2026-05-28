@@ -1,0 +1,35 @@
+   
+         .options-icon{
+            width: 30px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+    .options-popup{
+        display:flex;
+        flex-direction: column;
+        position: absolute;
+        width: 140px;
+        z-index: 10;
+        background: var(--hover);
+        top: 50px;
+        right:10px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 6px;
+        .options-button{
+          background: transparent;
+          border: none;
+          border-radius: 8px;
+          color: var(--text);
+          padding: 8px 10px;
+          text-align: left;
+          cursor: pointer;
+
+          &:hover{
+            background: var(--hover-strong);
+          }
+        }
+    }

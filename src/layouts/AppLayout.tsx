@@ -1,5 +1,5 @@
-import DesktopScreen from '../components/DesktopScreen'
-import MobileScreen from '../components/MobileScreen'
+import DesktopScreen from '../pages/ApiKeyScreen'
+import MobileScreen from '../pages/ApiKeyMobileScreen'
 import type { ScreenMode } from '../types'
 import DesktopLayout from './DesktopLayout'
 import MobileLayout from './MobileLayout'

@@ -1,7 +1,7 @@
 export default function MobileTopHeader() {
   return (
     <header className="mobile-top-header">
-      <h1>My App</h1>
+      <div className="mobile-top-header__title">API keys</div>
     </header>
   )
 }
