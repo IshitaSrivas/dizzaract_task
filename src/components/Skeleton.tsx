@@ -1,13 +1,13 @@
 import '../styles/Skeleton.scss'
 import type { SkeletonProps } from '../types'
 
-export function Skeleton({ width = '100%', height = 14, borderRadius = '6px', className = '' }: SkeletonProps) {
-  return (
-    <div
-      className={`skeleton ${className}`}
-      style={{ width, height, borderRadius }}
-    />
-  )
+export function Skeleton({
+  width = '100%',
+  height = 14,
+  borderRadius = '6px',
+  className = '',
+}: SkeletonProps) {
+  return <div className={`skeleton ${className}`} style={{ width, height, borderRadius }} />
 }
 
 /** Mimics the desktop API Keys page (header + table rows) */
@@ -96,15 +96,18 @@ export function PageSkeleton() {
 export function ChatPlaceholder() {
   const bubbles = [
     { right: false, lines: [200, 140] },
-    { right: true,  lines: [160] },
+    { right: true, lines: [160] },
     { right: false, lines: [240, 180, 100] },
-    { right: true,  lines: [120, 90] },
+    { right: true, lines: [120, 90] },
   ]
   return (
     <div className="chat-placeholder">
       <div className="chat-placeholder__messages">
         {bubbles.map((b, i) => (
-          <div key={i} className={`chat-placeholder__bubble${b.right ? ' chat-placeholder__bubble--right' : ''}`}>
+          <div
+            key={i}
+            className={`chat-placeholder__bubble${b.right ? ' chat-placeholder__bubble--right' : ''}`}
+          >
             <div className="chat-placeholderavtar" />
             <div className="chat-placeholder__text">
               {b.lines.map((w, j) => (

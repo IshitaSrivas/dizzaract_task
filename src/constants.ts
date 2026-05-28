@@ -1,4 +1,4 @@
-import type { ApiKey, ModelOption } from "./types"
+import type { ApiKey, ModelOption } from './types'
 import usage from '../src/assets/usage.svg'
 import key from '../src/assets/key.svg'
 import billing from '../src/assets/billing.svg'
@@ -47,7 +47,6 @@ export const sidebarSections = [
     ],
   },
 ]
-
 
 export const initialKeys: ApiKey[] = [
   {
@@ -121,19 +120,17 @@ export const MODEL_OPTIONS: ModelOption[] = [
     id: 'manual',
     name: 'Manual',
     description: 'Select specific model manually',
-    icon:manual,
+    icon: manual,
     colors: ['#94a3b8', '#cbd5e1', '#e2e8f0'],
   },
 ]
-
 
 export const GRID_COLS = 6
 export const GRID_ROWS = 3
 export const CENTER_ROW = 1
 
-
 export const DUMMY_RESPONSES = [
   "Here's a strong passphrase: correct-horse-battery-staple#9 — easy to remember and very hard to crack. For maximum security, use a password manager to generate truly random strings like xK#9mP@2qL$5nR!.",
   'A strong password should be 16+ characters mixing uppercase, lowercase, numbers, and symbols. Example: F7$kQw!9mZ@3xL#p — store it in Bitwarden or 1Password.',
-  "Consider a diceware passphrase: four random words joined by symbols. E.g. maple$tower!river#frost — entropy of ~50 bits, very strong and memorable.",
+  'Consider a diceware passphrase: four random words joined by symbols. E.g. maple$tower!river#frost — entropy of ~50 bits, very strong and memorable.',
 ]

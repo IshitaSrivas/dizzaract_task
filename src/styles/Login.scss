@@ -75,7 +75,9 @@
     outline: none;
     width: 100%;
     font-family: var(--font-sans);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
 
     &::placeholder {
       color: var(--text-2);
@@ -118,7 +120,9 @@
   cursor: pointer;
   margin-top: 6px;
   font-family: var(--font-sans);
-  transition: opacity 0.2s ease, transform 0.15s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.15s ease;
 
   &:hover:not(:disabled) {
     opacity: 0.88;

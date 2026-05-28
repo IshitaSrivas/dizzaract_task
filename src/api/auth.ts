@@ -1,6 +1,5 @@
 import type { LoginPayload, LoginResponse } from '../types'
 
-
 export async function loginAPI(payload: LoginPayload): Promise<LoginResponse> {
   await new Promise((resolve) => setTimeout(resolve, 500))
 

@@ -35,7 +35,9 @@ export default function KeyFormModal({ mode, initial, onSubmit, onClose }: Props
       <div className="modal-box" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <h3 className="modal-title">{mode === 'create' ? 'Create API Key' : 'Edit API Key'}</h3>
-          <button className="modal-close" type="button" onClick={onClose}>×</button>
+          <button className="modal-close" type="button" onClick={onClose}>
+            ×
+          </button>
         </div>
         <form onSubmit={handleSubmit} className="modal-form">
           <label className="modal-label">
@@ -65,8 +67,12 @@ export default function KeyFormModal({ mode, initial, onSubmit, onClose }: Props
             </button>
             <button type="submit" className="modal-btn modal-btn--submit" disabled={loading}>
               {loading
-                ? mode === 'create' ? 'Creating...' : 'Saving...'
-                : mode === 'create' ? 'Create' : 'Save'}
+                ? mode === 'create'
+                  ? 'Creating...'
+                  : 'Saving...'
+                : mode === 'create'
+                  ? 'Create'
+                  : 'Save'}
             </button>
           </div>
         </form>

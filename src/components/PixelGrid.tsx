@@ -1,6 +1,12 @@
-import { CENTER_ROW, GRID_COLS, GRID_ROWS } from "../constants";
+import { CENTER_ROW, GRID_COLS, GRID_ROWS } from '../constants'
 
-export default function PixelGrid({ active, colors }: { active: boolean; colors: [string, string, string] }) {
+export default function PixelGrid({
+  active,
+  colors,
+}: {
+  active: boolean
+  colors: [string, string, string]
+}) {
   const total = GRID_COLS * GRID_ROWS
   return (
     <div className="pixel-grid" aria-hidden="true">
@@ -13,12 +19,14 @@ export default function PixelGrid({ active, colors }: { active: boolean; colors:
           <div
             key={i}
             className="pixel-grid__cell"
-            style={{
-              animationDelay: `${delay}ms`,
-              animationPlayState: active ? 'running' : 'paused',
-              opacity: active ? undefined : 0.14,
-              '--cell-lit': color,
-            } as React.CSSProperties}
+            style={
+              {
+                animationDelay: `${delay}ms`,
+                animationPlayState: active ? 'running' : 'paused',
+                opacity: active ? undefined : 0.14,
+                '--cell-lit': color,
+              } as React.CSSProperties
+            }
           />
         )
       })}

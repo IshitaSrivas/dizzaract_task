@@ -1,11 +1,11 @@
 import { useState, useRef, useEffect } from 'react'
 import '../styles/Chat.scss'
-import { MODEL_OPTIONS} from '../constants'
+import { MODEL_OPTIONS } from '../constants'
 import type { Message } from '../types'
-import { fakeChatApi } from '../api/keys';
+import { fakeChatApi } from '../api/keys'
 import ModelDropdown from '../components/ModelDropdown'
-import PixelGrid from '../components/PixelGrid';
-import ThinkingIndicator from './ThinkingPad';
+import PixelGrid from '../components/PixelGrid'
+import ThinkingIndicator from './ThinkingPad'
 
 export default function ChatScreen() {
   const [messages, setMessages] = useState<Message[]>([
@@ -60,8 +60,19 @@ export default function ChatScreen() {
         </div>
 
         <button className="chat-screen__share" title="Share conversation">
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" width="18" height="18">
-            <path d="M4 10V16a1 1 0 001 1h10a1 1 0 001-1V10M10 3v9M7 6l3-3 3 3" strokeLinecap="round" strokeLinejoin="round" />
+          <svg
+            viewBox="0 0 20 20"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            width="18"
+            height="18"
+          >
+            <path
+              d="M4 10V16a1 1 0 001 1h10a1 1 0 001-1V10M10 3v9M7 6l3-3 3 3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
         </button>
       </div>
@@ -69,9 +80,7 @@ export default function ChatScreen() {
       <div className="chat-screen__messages">
         {messages.map((msg) => (
           <div key={msg.id} className={`chat-screen__row chat-screen__row--${msg.role}`}>
-            <div className={`chat-screen__bubble chat-screen__bubble--${msg.role}`}>
-              {msg.text}
-            </div>
+            <div className={`chat-screen__bubble chat-screen__bubble--${msg.role}`}>{msg.text}</div>
           </div>
         ))}
 
@@ -84,7 +93,6 @@ export default function ChatScreen() {
         <div ref={bottomRef} />
       </div>
 
-
       <div className="chat-screen__footer">
         <input
           className="chat-screen__input"
@@ -95,7 +103,6 @@ export default function ChatScreen() {
           disabled={isThinking}
         />
 
-      
         <div className="model-selector-wrap">
           {dropdownOpen && (
             <ModelDropdown
@@ -110,9 +117,18 @@ export default function ChatScreen() {
             onClick={() => setDropdownOpen((o) => !o)}
             title="Select model"
           >
-            <span className="model-selector__icon"><img src={selectedModel.icon} alt={selectedModel.name} width={18} height={18} /></span>
+            <span className="model-selector__icon">
+              <img src={selectedModel.icon} alt={selectedModel.name} width={18} height={18} />
+            </span>
             <span className="model-selector__name">{selectedModel.name}</span>
-            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.8" width="10" height="10">
+            <svg
+              viewBox="0 0 12 12"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              width="10"
+              height="10"
+            >
               <path d="M2 4l4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>

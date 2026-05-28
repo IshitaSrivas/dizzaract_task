@@ -1,7 +1,5 @@
 import type { ApiKey } from '../types'
-import {DUMMY_RESPONSES, initialKeys} from '../constants'
-
-
+import { DUMMY_RESPONSES, initialKeys } from '../constants'
 
 function randomId(prefix = 'k') {
   return `${prefix}_${Math.random().toString(36).slice(2, 9)}`
@@ -14,7 +12,7 @@ function maskKey(k: string) {
 
 let store = initialKeys.slice()
 
-export async function fetchApiKeys(userId?: string): Promise<ApiKey[]> {
+export async function fetchApiKeys(_userId?: string): Promise<ApiKey[]> {
   // simulate network latency
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -23,7 +21,11 @@ export async function fetchApiKeys(userId?: string): Promise<ApiKey[]> {
   })
 }
 
-export async function createApiKey(userId?: string, name?: string, expires?: string): Promise<ApiKey> {
+export async function createApiKey(
+  _userId?: string,
+  name?: string,
+  expires?: string,
+): Promise<ApiKey> {
   return new Promise((resolve) => {
     setTimeout(() => {
       const key = `${Math.random().toString(36).slice(2, 12)}`

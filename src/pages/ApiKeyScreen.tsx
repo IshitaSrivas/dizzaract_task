@@ -15,11 +15,14 @@ export default function DesktopScreen() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [showCreateForm, setShowCreateForm] = useState(false)
-  const [successInfo, setSuccessInfo] = useState<{ message: string; copyValue?: string; copyLabel?: string } | null>(null)
+  const [successInfo, setSuccessInfo] = useState<{
+    message: string
+    copyValue?: string
+    copyLabel?: string
+  } | null>(null)
 
   useEffect(() => {
     let mounted = true
-    setLoading(true)
     fetchApiKeys(user?.email)
       .then((data) => {
         if (!mounted) return
@@ -33,6 +36,8 @@ export default function DesktopScreen() {
       })
     return () => {
       mounted = false
+      setLoading(true)
+      setKeys([])
     }
   }, [user?.email])
 
@@ -41,7 +46,7 @@ export default function DesktopScreen() {
     setKeys((s) => [newKey, ...s])
     setShowCreateForm(false)
     setSuccessInfo({
-      message: 'API key created successfully! Copy your key — it won\'t be shown again.',
+      message: "API key created successfully! Copy your key — it won't be shown again.",
       copyValue: newKey.key,
       copyLabel: 'Copy key',
     })
@@ -50,7 +55,11 @@ export default function DesktopScreen() {
   const handleEdit = async (id: string, name: string, expires: string) => {
     const updated = await editApiKey(id, name, expires)
     setKeys((s) => s.map((k) => (k.id === id ? updated : k)))
-    setSuccessInfo({ message: 'API key updated successfully!', copyValue: name, copyLabel: 'Copy name' })
+    setSuccessInfo({
+      message: 'API key updated successfully!',
+      copyValue: name,
+      copyLabel: 'Copy name',
+    })
   }
 
   const handleDelete = async (id: string) => {
@@ -80,15 +89,18 @@ export default function DesktopScreen() {
         </div>
       </div>
 
-      {error && (
-        <div style={{ color: 'crimson', marginTop: 8 }}>{error}</div>
-      )}
+      {error && <div style={{ color: 'crimson', marginTop: 8 }}>{error}</div>}
 
       <div className="api-table-column">
         {loading ? (
           <DesktopApiKeysSkeleton />
         ) : (
-          <ApiKeysTable keys={keys} onEdit={handleEdit} onDelete={handleDelete} onDisable={handleDisable} />
+          <ApiKeysTable
+            keys={keys}
+            onEdit={handleEdit}
+            onDelete={handleDelete}
+            onDisable={handleDisable}
+          />
         )}
       </div>
 

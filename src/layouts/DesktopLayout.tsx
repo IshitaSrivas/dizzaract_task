@@ -17,7 +17,7 @@ export default function DesktopLayout({ children }: DesktopLayoutProps) {
             <div className="avatar">RG</div>
           </div>
         </div>
-        <div className= "desktop-content">{children}</div>
+        <div className="desktop-content">{children}</div>
       </section>
     </div>
   )

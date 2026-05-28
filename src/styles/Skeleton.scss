@@ -1,17 +1,16 @@
 @use './variables';
 
 @keyframes shimmer {
-  0%   { background-position: -600px 0; }
-  100% { background-position:  600px 0; }
+  0% {
+    background-position: -600px 0;
+  }
+  100% {
+    background-position: 600px 0;
+  }
 }
 
 .skeleton {
-  background: linear-gradient(
-    90deg,
-    var(--hover) 0%,
-    var(--hover-strong) 50%,
-    var(--hover) 100%
-  );
+  background: linear-gradient(90deg, var(--hover) 0%, var(--hover-strong) 50%, var(--hover) 100%);
   background-size: 600px 100%;
   animation: shimmer 1.6s infinite linear;
   flex-shrink: 0;

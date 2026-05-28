@@ -1,5 +1,12 @@
 import { useEffect, useState } from 'react'
-import { fetchApiKeys, maskApiKey, createApiKey, editApiKey, deleteApiKey, disableApiKey } from '../api/keys'
+import {
+  fetchApiKeys,
+  maskApiKey,
+  createApiKey,
+  editApiKey,
+  deleteApiKey,
+  disableApiKey,
+} from '../api/keys'
 import '../styles/MobileScreen.scss'
 import type { ApiKey } from '../types'
 import OptionsPopup from '../components/OptionsPopup'
@@ -12,7 +19,11 @@ export default function MobileScreen() {
   const [keys, setKeys] = useState<ApiKey[]>([])
   const [loading, setLoading] = useState(true)
   const [showCreateForm, setShowCreateForm] = useState(false)
-  const [successInfo, setSuccessInfo] = useState<{ message: string; copyValue?: string; copyLabel?: string } | null>(null)
+  const [successInfo, setSuccessInfo] = useState<{
+    message: string
+    copyValue?: string
+    copyLabel?: string
+  } | null>(null)
 
   useEffect(() => {
     let mounted = true
@@ -33,7 +44,7 @@ export default function MobileScreen() {
     setKeys((s) => [newKey, ...s])
     setShowCreateForm(false)
     setSuccessInfo({
-      message: 'API key created successfully! Copy your key — it won\'t be shown again.',
+      message: "API key created successfully! Copy your key — it won't be shown again.",
       copyValue: newKey.key,
       copyLabel: 'Copy key',
     })
@@ -42,7 +53,11 @@ export default function MobileScreen() {
   const handleEdit = async (id: string, name: string, expires: string) => {
     const updated = await editApiKey(id, name, expires)
     setKeys((s) => s.map((k) => (k.id === id ? updated : k)))
-    setSuccessInfo({ message: 'API key updated successfully!', copyValue: name, copyLabel: 'Copy name' })
+    setSuccessInfo({
+      message: 'API key updated successfully!',
+      copyValue: name,
+      copyLabel: 'Copy name',
+    })
   }
 
   const handleDelete = async (id: string) => {
@@ -59,9 +74,9 @@ export default function MobileScreen() {
 
   return (
     <div className="mobile-list">
-        <button className="mobile-create-btn" onClick={() => setShowCreateForm(true)}>
-          <img src={add} alt="Add" />
-        </button>
+      <button className="mobile-create-btn" onClick={() => setShowCreateForm(true)}>
+        <img src={add} alt="Add" />
+      </button>
       {loading ? (
         <MobileApiKeysSkeleton />
       ) : (
@@ -85,7 +100,12 @@ export default function MobileScreen() {
               </div>
 
               <div className="api-card__actions">
-                <OptionsPopup keyData={k} onEdit={handleEdit} onDelete={handleDelete} onDisable={handleDisable} />
+                <OptionsPopup
+                  keyData={k}
+                  onEdit={handleEdit}
+                  onDelete={handleDelete}
+                  onDisable={handleDisable}
+                />
               </div>
             </div>
           </div>

@@ -1,8 +1,7 @@
 import options from '../assets/options.svg'
 import React, { useEffect, useRef, useState } from 'react'
 import '../styles/OptionPopup.scss'
-import type { ApiKey, Mode, Props } from '../types'
-
+import type { Mode, Props } from '../types'
 
 export default function OptionsPopup({ keyData, onEdit, onDelete, onDisable }: Props) {
   const [active, setActive] = useState(false)

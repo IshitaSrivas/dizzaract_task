@@ -8,12 +8,11 @@ export default function LoginScreen() {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
-  const handleChange = (field: 'email' | 'password') => (
-    event: React.ChangeEvent<HTMLInputElement>,
-  ) => {
-    setForm((current) => ({ ...current, [field]: event.target.value }))
-    setError('')
-  }
+  const handleChange =
+    (field: 'email' | 'password') => (event: React.ChangeEvent<HTMLInputElement>) => {
+      setForm((current) => ({ ...current, [field]: event.target.value }))
+      setError('')
+    }
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -58,7 +57,6 @@ export default function LoginScreen() {
               required
             />
           </label>
-
 
           {error && <div className="login-error">{error}</div>}
 

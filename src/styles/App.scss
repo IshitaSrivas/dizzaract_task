@@ -1,7 +1,6 @@
 @use './variables';
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
 
-
 .app-shell {
   min-height: 100vh;
   display: flex;
@@ -27,7 +26,6 @@
   font-size: 1rem;
   font-weight: 700;
 }
-
 
 .app-header {
   width: 100%;
@@ -118,9 +116,9 @@
   color: var(--text);
 }
 
-.mobile-top-header{
+.mobile-top-header {
   border-bottom: 1px solid var(--border);
-  .mobile-top-header__title{
+  .mobile-top-header__title {
     margin: 0;
     padding: 22px 26px;
     color: var(--text-1);
@@ -128,7 +126,6 @@
     font-weight: 700;
   }
 }
-
 
 .bottom-nav,
 .mobile-bottom-nav {
@@ -174,8 +171,6 @@
     background: var(--base);
     box-shadow: var(--shadow);
   }
-
-
 }
 
 .mobile-layout {
@@ -183,15 +178,13 @@
   flex-direction: column;
   height: 100vh;
   width: 100vw;
- .mobile-center-screen {
-  flex: 1;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  .mobile-center-screen {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
 }
-}
-
-
 
 @media (max-width: 880px) {
   .panel-grid {

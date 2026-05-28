@@ -65,7 +65,6 @@ export type Props = {
 
 export type Mode = 'menu' | 'edit'
 
-
 export type SkeletonProps = {
   width?: string | number
   height?: string | number
