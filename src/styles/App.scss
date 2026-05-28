@@ -1,6 +1,7 @@
 @use './variables';
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
 
-.login-page,
+
 .app-shell {
   min-height: 100vh;
   display: flex;
@@ -9,7 +10,6 @@
   background: var(--bg);
 }
 
-.login-card,
 .desktop-panel,
 .mobile-shell {
   width: min(100%, 900px);
@@ -19,68 +19,6 @@
   box-shadow: var(--shadow);
 }
 
-.login-card {
-  padding: 40px 38px;
-}
-
-.login-header {
-  margin-bottom: 28px;
-}
-
-.login-header .badge {
-  display: inline-flex;
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: var(--accent-bg);
-  color: var(--accent);
-  font-weight: 700;
-  margin-bottom: 16px;
-}
-
-.login-header h1 {
-  margin: 0 0 10px;
-  font-size: clamp(2rem, 2.2vw, 2.6rem);
-  color: var(--text-h);
-}
-
-.login-header p {
-  margin: 0;
-  color: var(--text);
-}
-
-.login-form {
-  display: grid;
-  gap: 18px;
-}
-
-.login-form label {
-  display: grid;
-  gap: 10px;
-  color: var(--text-h);
-  font-weight: 600;
-}
-
-.login-form input {
-  width: 100%;
-  padding: 16px 18px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  background: var(--code-bg);
-  color: var(--text-h);
-}
-
-.login-form input:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-}
-
-.error-text {
-  margin: 0;
-  color: #b52b3b;
-  font-size: 0.95rem;
-}
-
-.login-submit,
 .logout-button,
 .bottom-nav button {
   cursor: pointer;
@@ -90,18 +28,6 @@
   font-weight: 700;
 }
 
-.login-submit {
-  width: 100%;
-  padding: 16px;
-  background: var(--accent);
-  color: white;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.login-submit:hover {
-  opacity: 0.95;
-  transform: translateY(-1px);
-}
 
 .app-header {
   width: 100%;
@@ -280,11 +206,6 @@
 }
 
 @media (max-width: 768px) {
-  .login-page {
-    padding: 20px;
-  }
-
-  .login-card,
   .desktop-panel,
   .mobile-shell {
     border-radius: 20px;
