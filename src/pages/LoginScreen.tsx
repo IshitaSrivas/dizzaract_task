@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
+import '../styles/Login.scss'
 
 export default function LoginScreen() {
   const { signIn } = useAuth()
@@ -30,9 +31,7 @@ export default function LoginScreen() {
     <main className="login-page">
       <section className="login-card">
         <div className="login-header">
-          <span className="badge">Welcome back</span>
           <h1>Sign in</h1>
-          <p>Securely log in to access your dashboard.</p>
         </div>
 
         <form className="login-form" onSubmit={handleSubmit}>
@@ -43,6 +42,7 @@ export default function LoginScreen() {
               value={form.email}
               onChange={handleChange('email')}
               placeholder="you@example.com"
+              autoComplete="email"
               required
             />
           </label>
@@ -54,14 +54,16 @@ export default function LoginScreen() {
               value={form.password}
               onChange={handleChange('password')}
               placeholder="••••••••"
+              autoComplete="current-password"
               required
             />
           </label>
 
-          {error ? <p className="error-text">{error}</p> : null}
+
+          {error && <div className="login-error">{error}</div>}
 
           <button type="submit" className="login-submit" disabled={loading}>
-            {loading ? 'Signing in...' : 'Continue'}
+            {loading ? 'Signing in…' : 'Continue'}
           </button>
         </form>
       </section>

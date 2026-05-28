@@ -111,7 +111,7 @@ export function ChatPlaceholder() {
       <div className="chat-placeholder__messages">
         {bubbles.map((b, i) => (
           <div key={i} className={`chat-placeholder__bubble${b.right ? ' chat-placeholder__bubble--right' : ''}`}>
-            <div className="chat-placeholder__avatar" />
+            <div className="chat-placeholderavtar" />
             <div className="chat-placeholder__text">
               {b.lines.map((w, j) => (
                 <Skeleton key={j} width={w} height={14} borderRadius="8px" />

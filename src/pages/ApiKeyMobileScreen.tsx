@@ -3,6 +3,7 @@ import { fetchApiKeys, maskApiKey, createApiKey, editApiKey, deleteApiKey, disab
 import '../styles/MobileScreen.scss'
 import type { ApiKey } from '../types'
 import OptionsPopup from '../components/OptionsPopup'
+import add from '../assets/add.svg'
 import KeyFormModal from '../components/KeyFormModal'
 import SuccessPopup from '../components/SuccessPopup'
 import { MobileApiKeysSkeleton } from '../components/Skeleton'
@@ -58,10 +59,9 @@ export default function MobileScreen() {
 
   return (
     <div className="mobile-list">
-      <div className="mobile-list__header">
-        <button className="mobile-create-btn" onClick={() => setShowCreateForm(true)}>+ Create API key</button>
-      </div>
-
+        <button className="mobile-create-btn" onClick={() => setShowCreateForm(true)}>
+          <img src={add} alt="Add" />
+        </button>
       {loading ? (
         <MobileApiKeysSkeleton />
       ) : (

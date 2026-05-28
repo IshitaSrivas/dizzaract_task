@@ -112,12 +112,13 @@
   }
 }
 
-/* ---- Chat Placeholder ---- */
 .chat-placeholder {
   display: flex;
   flex-direction: column;
   height: 100%;
   padding: 20px;
+  overflow: hidden;
+  width: 100%;
   gap: 16px;
 
   &__messages {
@@ -138,7 +139,7 @@
     }
   }
 
-  &__avatar {
+  &avtar {
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -158,5 +159,11 @@
     align-items: center;
     padding-top: 8px;
     border-top: 1px solid var(--border);
+
+    > :first-child {
+      flex: 1;
+      width: auto !important;
+      min-width: 0;
+    }
   }
 }

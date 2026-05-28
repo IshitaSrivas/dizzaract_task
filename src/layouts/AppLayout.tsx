@@ -1,10 +1,11 @@
 import DesktopScreen from '../pages/ApiKeyScreen'
 import MobileScreen from '../pages/ApiKeyMobileScreen'
+import ChatScreen from '../pages/ChatScreen'
 import type { ScreenMode } from '../types'
 import DesktopLayout from './DesktopLayout'
 import MobileLayout from './MobileLayout'
 import { useNav } from '../context/NavContext'
-import { PageSkeleton, ChatPlaceholder } from '../components/Skeleton'
+import { PageSkeleton } from '../components/Skeleton'
 
 type AppLayoutProps = {
   screenMode: ScreenMode
@@ -12,7 +13,7 @@ type AppLayoutProps = {
 
 function resolveContent(tab: string, mobile: boolean) {
   if (tab === 'api') return mobile ? <MobileScreen /> : <DesktopScreen />
-  if (tab === 'chat') return <ChatPlaceholder />
+  if (tab === 'chat') return <ChatScreen />
   return <PageSkeleton />
 }
 
