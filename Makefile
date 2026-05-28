@@ -7,7 +7,7 @@ help:
 	@echo ""
 	@echo "  dizzaract-task — available make commands"
 	@echo "  ─────────────────────────────────────────────────────────────────"
-	@echo "  make install        install npm dependencies (npm ci)"
+	@echo "  make install        install npm dependencies (npm install)"
 	@echo "  make build          type-check + production build into dist/"
 	@echo "  make format         format all files with Prettier (writes in place)"
 	@echo "  make format-check   check formatting without writing (CI-safe)"
@@ -21,7 +21,7 @@ help:
 	@echo ""
 
 install:
-	npm ci
+	npm install
 
 build: install
 	npm run build
