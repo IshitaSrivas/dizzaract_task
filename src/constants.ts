@@ -20,7 +20,7 @@ export const navItems = [
   { label: 'API keys', icon: key, key: 'api' },
   { label: 'Usage', icon: usage, key: 'usage' },
   { label: 'Billing', icon: billing, key: 'billing', badge: 8 },
-  { label: 'Account', icon: playground, key: 'account' },
+  { label: 'Chat', icon: chat, key: 'chat' },
 ]
 
 export const sidebarSections = [
