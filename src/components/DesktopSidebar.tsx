@@ -1,10 +1,10 @@
-import { useAuth } from '../context/AuthContext'
+import { useNav } from '../context/NavContext'
 import '../styles/DesktopSidebar.scss'
 import { sidebarSections } from '../constants'
 import logo from '../assets/Logo.svg'
 
 export default function DesktopSidebar() {
-  const { user } = useAuth()
+  const { activeTab, setActiveTab } = useNav()
 
   return (
     <aside className="desktop-sidebar">
@@ -23,9 +23,10 @@ export default function DesktopSidebar() {
             <p className="sidebar-section-title">{section.title}</p>
             {section.items.map((item) => (
               <button
-                key={item.label}
+                key={item.key}
                 type="button"
-                className={`sidebar-item${item.active ? ' active' : ''}`}
+                className={`sidebar-item${activeTab === item.key ? ' active' : ''}`}
+                onClick={() => setActiveTab(item.key)}
               >
                 <span className="sidebar-icon" aria-hidden="true">
                   <img src={item.icon} alt={`${item.label} icon`} />

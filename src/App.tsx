@@ -1,12 +1,9 @@
 import { useEffect, useState } from 'react'
 import './styles/App.scss'
 import { useAuth } from './context/AuthContext'
+import { NavProvider } from './context/NavContext'
 import AppLayout from './layouts/AppLayout'
-import DesktopLayout from './layouts/DesktopLayout'
-import DesktopScreen from './pages/ApiKeyScreen'
 import LoginScreen from './pages/LoginScreen'
-import MobileLayout from './layouts/MobileLayout'
-import MobileScreen from './pages/ApiKeyMobileScreen'
 import { MOBILE_BREAKPOINT } from './constants'
 import type { ScreenMode } from './types'
 
@@ -29,8 +26,9 @@ function App() {
   }
 
   return (
-    <AppLayout screenMode={screenMode}>
-    </AppLayout>
+    <NavProvider>
+      <AppLayout screenMode={screenMode} />
+    </NavProvider>
   )
 }
 

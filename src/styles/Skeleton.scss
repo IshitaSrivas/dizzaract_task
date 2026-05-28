@@ -1,0 +1,162 @@
+@use './variables';
+
+@keyframes shimmer {
+  0%   { background-position: -600px 0; }
+  100% { background-position:  600px 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--hover) 0%,
+    var(--hover-strong) 50%,
+    var(--hover) 100%
+  );
+  background-size: 600px 100%;
+  animation: shimmer 1.6s infinite linear;
+  flex-shrink: 0;
+}
+
+/* ---- Desktop API Keys Skeleton ---- */
+.api-skel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  &__title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__table {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+}
+
+/* ---- Mobile API Keys Skeleton ---- */
+.mobile-skel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+
+  &__header {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 4px;
+  }
+
+  &__card {
+    background: var(--base-2);
+    border: 0.5px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+}
+
+/* ---- Generic Page Skeleton ---- */
+.page-skel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+
+  &__section {
+    background: var(--base-2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  &__row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+}
+
+/* ---- Chat Placeholder ---- */
+.chat-placeholder {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px;
+  gap: 16px;
+
+  &__messages {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    overflow: hidden;
+  }
+
+  &__bubble {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+
+    &--right {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--hover-strong);
+    flex-shrink: 0;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__input-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+}
