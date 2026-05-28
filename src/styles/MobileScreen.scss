@@ -3,6 +3,7 @@
   width: 100%;
   overflow-y: auto;
   height: 100%;
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -68,14 +69,14 @@
   }
 }
 
-.mobile-list__header {
-  display: flex;
-  justify-content: flex-end;
-  padding: 4px 0 8px;
-}
-
 .mobile-create-btn {
   background: var(--accent);
+  position:absolute;
+  right: 5vw;
+  bottom: 5vw;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
   border: none;
   border-radius: 12px;
   color: var(--text-1);

@@ -4,6 +4,9 @@ import key from '../src/assets/key.svg'
 import billing from '../src/assets/billing.svg'
 import playground from '../src/assets/playground.svg'
 import models from '../src/assets/models.svg'
+import settings from '../src/assets/settings.svg'
+import docs from '../src/assets/docs.svg'
+import chat from '../src/assets/rewards.svg'
 
 export const MOBILE_BREAKPOINT = 768
 
@@ -28,14 +31,14 @@ export const sidebarSections = [
   },
   {
     title: 'Node',
-    items: [{ label: 'Node rewards', icon: playground, key: 'node-rewards' }],
+    items: [{ label: 'Node rewards', icon: chat, key: 'node-rewards' }],
   },
   {
     title: 'System',
     items: [
-      { label: 'Settings', icon: playground, key: 'settings' },
-      { label: 'Docs', icon: playground, key: 'docs' },
-      { label: 'Chat', icon: playground, key: 'chat' },
+      { label: 'Settings', icon: settings, key: 'settings' },
+      { label: 'Docs', icon: docs, key: 'docs' },
+      { label: 'Chat', icon: chat, key: 'chat' },
     ],
   },
 ]
