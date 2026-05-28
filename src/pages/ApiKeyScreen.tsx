@@ -7,6 +7,7 @@ import KeyFormModal from '../components/KeyFormModal'
 import SuccessPopup from '../components/SuccessPopup'
 import { DesktopApiKeysSkeleton } from '../components/Skeleton'
 import '../styles/DesktopScreen.scss'
+import add from '../assets/add.svg'
 
 export default function DesktopScreen() {
   const { user } = useAuth()
@@ -72,7 +73,10 @@ export default function DesktopScreen() {
           <div className="api-header-title-subtext">Manage your API keys to access all models</div>
         </div>
         <div className="api-header-button">
-          <button onClick={() => setShowCreateForm(true)}>Create API key</button>
+          <button onClick={() => setShowCreateForm(true)}>
+            <img src={add} alt="Add" />
+            <span>Create API key</span>
+          </button>
         </div>
       </div>
 

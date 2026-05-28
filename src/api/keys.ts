@@ -1,5 +1,5 @@
 import type { ApiKey } from '../types'
-import {initialKeys} from '../constants'
+import {DUMMY_RESPONSES, initialKeys} from '../constants'
 
 
 
@@ -76,4 +76,14 @@ export async function disableApiKey(id: string): Promise<ApiKey> {
 
 export function maskApiKey(k: string) {
   return maskKey(k)
+}
+
+export function fakeChatApi(userMsg: string): Promise<string> {
+  void userMsg
+  return new Promise((resolve) =>
+    setTimeout(
+      () => resolve(DUMMY_RESPONSES[Math.floor(Math.random() * DUMMY_RESPONSES.length)]),
+      2800,
+    ),
+  )
 }

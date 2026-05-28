@@ -1,11 +1,5 @@
 import '../styles/Skeleton.scss'
-
-type SkeletonProps = {
-  width?: string | number
-  height?: string | number
-  borderRadius?: string
-  className?: string
-}
+import type { SkeletonProps } from '../types'
 
 export function Skeleton({ width = '100%', height = 14, borderRadius = '6px', className = '' }: SkeletonProps) {
   return (

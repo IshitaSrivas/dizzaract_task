@@ -1,15 +1,10 @@
-import type { ApiKey } from '../types'
+import type { TableProps,ApiKey } from '../types'
 import { maskApiKey } from '../api/keys'
 import OptionsPopup from './OptionsPopup'
 
-type Props = {
-  keys: ApiKey[]
-  onEdit: (id: string, name: string, expires: string) => Promise<void>
-  onDelete: (id: string) => Promise<void>
-  onDisable: (id: string) => Promise<void>
-}
 
-export default function ApiKeysTable({ keys, onEdit, onDelete, onDisable }: Props) {
+
+export default function ApiKeysTable({ keys, onEdit, onDelete, onDisable }: TableProps) {
 
   return (
 
