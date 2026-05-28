@@ -1,0 +1,139 @@
+@use './variables';
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.modal-box {
+  background: var(--base-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 28px 24px 24px;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-1);
+  margin: 0;
+}
+
+.modal-close {
+  background: transparent;
+  border: none;
+  color: var(--text-2);
+  font-size: 1.4rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: 6px;
+
+  &:hover {
+    background: var(--hover-strong);
+    color: var(--text-1);
+  }
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--text-2);
+  font-weight: 500;
+}
+
+.modal-input {
+  background: var(--hover);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-1);
+  font-size: 0.9rem;
+  padding: 9px 12px;
+  outline: none;
+  font-family: var(--font-sans);
+
+  &::placeholder {
+    color: var(--text-2);
+    opacity: 0.6;
+  }
+
+  &:focus {
+    border-color: var(--accent);
+  }
+
+  &[type='date']::-webkit-calendar-picker-indicator {
+    filter: invert(0.7);
+    cursor: pointer;
+  }
+}
+
+.modal-error {
+  font-size: 0.82rem;
+  color: #f87171;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.modal-btn {
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  font-family: var(--font-sans);
+
+  &--cancel {
+    background: transparent;
+    color: var(--text-2);
+
+    &:hover {
+      background: var(--hover);
+      color: var(--text-1);
+    }
+  }
+
+  &--submit {
+    background: var(--accent);
+    color: var(--text-1);
+    border-color: transparent;
+
+    &:hover:not(:disabled) {
+      transform: scale(1.04);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}

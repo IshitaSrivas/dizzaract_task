@@ -9,7 +9,7 @@ export const MOBILE_BREAKPOINT = 768
 
 export const navItems = [
   { label: 'Models', icon: models, key: 'models' },
-  { label: 'API keys', icon: key, key: 'api', active: true },
+  { label: 'API keys', icon: key, key: 'api' },
   { label: 'Usage', icon: usage, key: 'usage' },
   { label: 'Billing', icon: billing, key: 'billing', badge: 8 },
   { label: 'Account', icon: playground, key: 'account' },
@@ -19,25 +19,27 @@ export const sidebarSections = [
   {
     title: 'Platform',
     items: [
-      { label: 'Models', icon: models },
-      { label: 'API keys', icon: key, active: true },
-      { label: 'Usage', icon: usage },
-      { label: 'Billing', icon: billing },
-      { label: 'Playground', icon: playground },
+      { label: 'Models', icon: models, key: 'models' },
+      { label: 'API keys', icon: key, key: 'api' },
+      { label: 'Usage', icon: usage, key: 'usage' },
+      { label: 'Billing', icon: billing, key: 'billing' },
+      { label: 'Playground', icon: playground, key: 'playground' },
     ],
   },
   {
     title: 'Node',
-    items: [{ label: 'Node rewards', icon: playground }],
+    items: [{ label: 'Node rewards', icon: playground, key: 'node-rewards' }],
   },
   {
     title: 'System',
     items: [
-      { label: 'Settings', icon: playground },
-      { label: 'Docs', icon: playground },
+      { label: 'Settings', icon: playground, key: 'settings' },
+      { label: 'Docs', icon: playground, key: 'docs' },
+      { label: 'Chat', icon: playground, key: 'chat' },
     ],
   },
 ]
+
 
 export const initialKeys: ApiKey[] = [
   {

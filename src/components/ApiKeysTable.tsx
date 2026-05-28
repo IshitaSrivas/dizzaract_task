@@ -1,12 +1,16 @@
-import type { ApiKeysTableProps } from '../types'
+import type { ApiKey } from '../types'
 import { maskApiKey } from '../api/keys'
 import OptionsPopup from './OptionsPopup'
-import options from '../assets/options.svg'
-import { useState } from 'react'
 
-export default function ApiKeysTable({ keys }: ApiKeysTableProps) {
+type Props = {
+  keys: ApiKey[]
+  onEdit: (id: string, name: string, expires: string) => Promise<void>
+  onDelete: (id: string) => Promise<void>
+  onDisable: (id: string) => Promise<void>
+}
 
-  const [active, setActive] = useState(false)
+export default function ApiKeysTable({ keys, onEdit, onDelete, onDisable }: Props) {
+
   return (
 
       <table className="api-table">
@@ -35,7 +39,7 @@ export default function ApiKeysTable({ keys }: ApiKeysTableProps) {
                 <td className="api-cell td">{k.createdAt}</td>
                 <td className="api-cell td">{k.lastUsed ?? '-'}</td>
                 <td className="api-cell td options">
-                  <OptionsPopup />
+                  <OptionsPopup keyData={k} onEdit={onEdit} onDelete={onDelete} onDisable={onDisable} />
                 </td>
               </tr>
             ))}

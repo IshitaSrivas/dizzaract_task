@@ -23,7 +23,7 @@ export async function fetchApiKeys(userId?: string): Promise<ApiKey[]> {
   })
 }
 
-export async function createApiKey(userId?: string, name?: string): Promise<ApiKey> {
+export async function createApiKey(userId?: string, name?: string, expires?: string): Promise<ApiKey> {
   return new Promise((resolve) => {
     setTimeout(() => {
       const key = `${Math.random().toString(36).slice(2, 12)}`
@@ -32,12 +32,45 @@ export async function createApiKey(userId?: string, name?: string): Promise<ApiK
         name: name || `new_key_${Math.random().toString(36).slice(2, 4)}`,
         key,
         status: 'Active',
+        expires: expires || undefined,
         createdAt: new Date().toISOString().slice(0, 10),
         lastUsed: 'Never',
       }
       store = [newKey, ...store]
       resolve({ ...newKey })
     }, 500)
+  })
+}
+
+export async function editApiKey(id: string, name: string, expires: string): Promise<ApiKey> {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const idx = store.findIndex((k) => k.id === id)
+      if (idx === -1) return reject(new Error('Key not found'))
+      store[idx] = { ...store[idx], name, expires: expires || undefined }
+      resolve({ ...store[idx] })
+    }, 400)
+  })
+}
+
+export async function deleteApiKey(id: string): Promise<void> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      store = store.filter((k) => k.id !== id)
+      resolve()
+    }, 300)
+  })
+}
+
+export async function disableApiKey(id: string): Promise<ApiKey> {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const idx = store.findIndex((k) => k.id === id)
+      if (idx === -1) return reject(new Error('Key not found'))
+      const today = new Date().toISOString().slice(0, 10)
+      store[idx] = { ...store[idx], status: 'Expired', expires: today }
+      resolve({ ...store[idx] })
+    }, 300)
   })
 }
 
